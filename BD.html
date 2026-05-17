@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Base de Facturas</title>
+
+  <link rel="stylesheet" href="BD.css">
+
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <!-- HEADER -->
+    <div class="header">
+
+      <h1>FACTURAS REGISTRADAS</h1>
+
+      <button onclick="volver()">
+        VOLVER
+      </button>
+
+    </div>
+
+    <!-- BOTÓN EXCEL -->
+    <div style="margin: 10px 0;">
+
+      <button onclick="exportarExcel()">
+        DESCARGAR EXCEL
+      </button>
+
+    </div>
+
+    <!-- BUSCADOR GLOBAL -->
+    <div class="buscador">
+
+      <input
+        type="text"
+        id="buscar"
+        placeholder="Buscar factura..."
+        oninput="filtrarFacturas()"
+      >
+
+    </div>
+
+    <!-- FILTROS AVANZADOS -->
+    <div class="filtros">
+
+      <input
+        type="text"
+        id="filtroVendedor"
+        placeholder="Filtrar por vendedor"
+        oninput="aplicarFiltros()"
+      >
+
+      <input
+        type="text"
+        id="filtroCodigo"
+        placeholder="Filtrar por código interno"
+        oninput="aplicarFiltros()"
+      >
+
+    </div>
+
+    <!-- TABLA MODERNA -->
+    <div class="tabla-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Código interno</th>
+            <th>Vendedor</th>
+            <th>Fecha</th>
+            <th>Serie</th>
+            <th>No. DTE</th>
+            <th>Cliente</th>
+            <th>Total</th>
+            <th>Archivo XML</th>
+            <th>Acción</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="tablaFacturas"></tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <!-- LIBRERÍA EXCEL (IMPORTANTE) -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script src="firebase.js"></script>
+
+  <script src="BD.js"></script>
+
+</body>
+
+</html>

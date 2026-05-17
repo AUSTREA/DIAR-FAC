@@ -1,0 +1,402 @@
+
+/* ========================= */
+/* VARIABLES */
+/* ========================= */
+:root {
+  --azul-principal: #1f3c88;
+  --azul-secundario: #4a6fa5;
+  --azul-claro: #eaf1fb;
+  --gris-borde: #d6dde8;
+  --texto: #2c2c2c;
+}
+
+/* ========================= */
+/* BASE */
+/* ========================= */
+body {
+  font-family: 'Segoe UI', 'Times New Roman', Times, serif, sans-serif;
+  background: #eaeaea;
+  margin: 0;
+  padding: 20px;
+  color: var(--texto);
+}
+
+.layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* ========================= */
+/* PANEL */
+/* ========================= */
+.panel {
+  width: 220px;
+  background: var(--azul-principal);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  position: sticky;
+  top: 20px;
+}
+
+.panel h2 {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.panel button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  background: #2d7be5;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.panel button:hover {
+  background: #1c5db6;
+}
+
+.panel input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+}
+
+/* ========================= */
+/* FACTURA */
+/* ========================= */
+.factura {
+  width: 21.59cm;
+  min-height: 27.94cm;
+  background: white;
+  margin: auto;
+  padding: 1.2cm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--azul-principal);
+  padding-bottom: 10px;
+}
+
+.logo img {
+  width: 170px;
+}
+
+.empresa {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.factura-box {
+  border: 2.5px solid var(--azul-principal);
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 13px;
+  background: var(--azul-claro);
+}
+
+/* ========================= */
+/* CLIENTE */
+/* ========================= */
+.cliente-box {
+  border: 1.5px solid var(--azul-secundario);
+  border-radius: 10px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.cliente-titulo {
+  text-align: center;
+  font-weight: 600;
+  padding: 6px;
+  background: var(--azul-principal);
+  color: white;
+  font-size: 12px;
+}
+
+.cliente-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 11px;
+}
+
+.cliente-col p {
+  margin: 3px 0;
+}
+
+/* ========================= */
+/* TABLA (ESTILO PRO REAL) */
+/* ========================= */
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border: 1.5px solid var(--azul-secundario);
+  table-layout: fixed;
+}
+
+/* HEADER */
+.tabla th {
+  background: var(--azul-principal);
+  color: white;
+  padding: 7px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+/* CELDAS */
+.tabla td {
+  padding: 6px;
+  font-size: 11px;
+  border-bottom: 1px solid var(--gris-borde);
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+/* 🔥 SOLO DESCRIPCIÓN MÁS ESPACIO */
+.tabla td:nth-child(2),
+.tabla th:nth-child(2) {
+  width: 55%;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* CANTIDAD */
+.tabla td:nth-child(1),
+.tabla th:nth-child(1) {
+  width: 10%;
+  text-align: center;
+}
+
+/* COSTO */
+.tabla td:nth-child(3),
+.tabla th:nth-child(3) {
+  width: 15%;
+  text-align: right;
+}
+
+/* SUBTOTAL */
+.tabla td:nth-child(4),
+.tabla th:nth-child(4) {
+  width: 20%;
+  text-align: right;
+}
+
+/* ZEBRA SUAVE */
+.tabla tbody tr:nth-child(even) {
+  background: #f8faff;
+}
+
+/* CUERPO FIJO */
+.tabla tbody {
+  height: 350px;
+}
+
+/* FILA RELLENO */
+.fila-relleno td {
+  height: 90%;
+  border: none;
+}
+
+/* ========================= */
+/* TOTALES */
+/* ========================= */
+
+.tabla tfoot td {
+  font-size: 12px;
+  padding: 10px;
+}
+
+.tabla tfoot {
+  border-top: 4px solid var(--azul-principal);
+}
+
+.total-final td {
+  background: var(--azul-claro);
+  font-weight: bold;
+}
+
+/* ========================= */
+/* LETRAS (MEJORADAS) */
+/* ========================= */
+
+.letras {
+  margin-top: 12px;
+  background: var(--azul-principal);
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 14px;
+  font-size: 12px; /* más legible */
+  line-height: 1.4; /* mejor lectura */
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.isr-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 10px 0;
+  color: #1a1a1a;
+}
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.certificador {
+  font-size: 10px;
+  line-height: 1.4;
+  max-width: 65%;
+  width: 65%;
+  display: block;
+
+  border: 1.5px solid var(--azul-secundario);
+  padding: 10px;
+  border-radius: 8px;
+  background: #f8faff;
+}
+
+.qr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.fel-logo {
+  width: 70px;
+  opacity: 0.85;
+}
+
+/* pdf*/
+
+@media print {
+
+  @page {
+    size: letter;
+    margin: 5mm; /* no lo pongas en 0 total */
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  /* CONTENEDOR PRINCIPAL */
+  .factura {
+    width: 100%;
+    height: auto;
+    padding: 5mm;
+    box-sizing: border-box;
+
+    /* 🔥 CLAVE: evitar que crezca más de la hoja */
+    transform: scale(0.95);
+    transform-origin: top left;
+  }
+
+  /* EVITAR SALTOS */
+  .factura, table {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  tr, td, th {
+    break-inside: avoid !important;
+  }
+
+  /* TABLA */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  /* COLORES */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* CLIENTE EN FILA */
+  #datos-cliente {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  /* CERTIFICADOR */
+  .certificador {
+    background: #f8faff !important;
+    border: 1.5px solid #1a4fa3 !important;
+  }
+}
+.hoy {
+  display: block;              /* antes inline-block */
+  width: fit-content;          /* que se ajuste al contenido */
+  margin-left: auto;           /* 🔥 esto lo manda a la derecha */
+  padding: 8px 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border: 1.5px solid #1a4fa3;
+  border-radius: 6px;
+
+  background: var(--azul-principal);
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.12);
+}
+
+/* fecha dentro */
+.hoy span {
+  color: #ffffff;
+  margin-left: 5px;
+}
