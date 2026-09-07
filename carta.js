@@ -248,29 +248,63 @@ window.fechaFactura = fechaFactura;
       tbody.insertBefore(fila, relleno);
     }
 
-    // ==========================
-    // TOTALES
-    // ==========================
-    const subtotalXML =
-      limpiarNumero(xmlDoc.getElementsByTagName("dte:MontoGravable")[0]?.textContent);
+   // ==========================
+// TOTALES
+// ==========================
 
-    const ivaXML =
-      limpiarNumero(xmlDoc.getElementsByTagName("dte:MontoImpuesto")[0]?.textContent);
+let subtotalXML = 0;
+let ivaXML = 0;
 
-    const totalXML =
-      limpiarNumero(xmlDoc.getElementsByTagName("dte:GranTotal")[0]?.textContent);
+// ==========================
+// SUMAR TODOS LOS SUBTOTALES
+// ==========================
+const montosGravables =
+  xmlDoc.getElementsByTagName("dte:MontoGravable");
 
-    document.getElementById("subtotal").textContent =
-      formatoQuetzal(subtotalXML);
+for (let i = 0; i < montosGravables.length; i++) {
 
-    document.getElementById("iva").textContent =
-      formatoQuetzal(ivaXML);
+  subtotalXML += limpiarNumero(
+    montosGravables[i].textContent
+  );
 
-    document.getElementById("total").textContent =
-      formatoQuetzal(totalXML);
+}
 
-    document.getElementById("total-letras").textContent =
-      numeroALetras(totalXML);
+// ==========================
+// SUMAR TODOS LOS IVA
+// ==========================
+const montosImpuesto =
+  xmlDoc.getElementsByTagName("dte:MontoImpuesto");
+
+for (let i = 0; i < montosImpuesto.length; i++) {
+
+  ivaXML += limpiarNumero(
+    montosImpuesto[i].textContent
+  );
+
+}
+
+// ==========================
+// TOTAL GENERAL
+// ==========================
+const totalXML =
+  limpiarNumero(
+    xmlDoc.getElementsByTagName("dte:GranTotal")[0]?.textContent
+  );
+
+// ==========================
+// MOSTRAR TOTALES
+// ==========================
+document.getElementById("subtotal").textContent =
+  formatoQuetzal(subtotalXML);
+
+document.getElementById("iva").textContent =
+  formatoQuetzal(ivaXML);
+
+document.getElementById("total").textContent =
+  formatoQuetzal(totalXML);
+
+document.getElementById("total-letras").textContent =
+  numeroALetras(totalXML);
 
     // ==========================
 // CERTIFICADOR + DTE + BD
